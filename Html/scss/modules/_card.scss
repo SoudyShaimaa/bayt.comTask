@@ -1,0 +1,161 @@
+#tinderslide > ul {
+    height: 100%;
+    position: relative;
+    min-height: $card-height;
+}
+.card{
+  width: 100%;
+  display: block;
+  background: #fff;
+  text-align: center;
+  @include box-shadow(0, 10px, 25px, rgba(0, 0, 0, 0.1));
+  border-radius: $default-border-radius;
+  padding: $padding-vertical 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+     transition: opacity 0.5s ease;
+    @include opacity(0.0);
+    &.accept{
+      background: $green;
+    }
+    &.reject{
+      background: $red;
+    }
+  }
+  .card-img{
+    position: relative;
+    z-index: 2;
+    border-radius: 100%;
+    width: $profile-img-dimintion;
+    height: $profile-img-dimintion;
+    overflow: hidden;
+    display: inline-block;
+    img{
+      width: 100%;
+      min-height: $profile-img-dimintion;
+    }
+  }
+  .card-title{
+    position: relative;
+    padding: $padding-horizontal ;
+    margin-top: 3px;
+    border-bottom: 2px solid #ebebeb;
+    h2{
+      @include font-size(20px);
+      color: $dark-gray;
+    }
+    h3{
+      @include font-size(16px);
+      color: $bas-gray;
+      i{
+        color: $brand-color;
+        @include font-size(23px);
+        top: 4px;
+        right: -2px;
+      }
+    }
+  }
+  .card-text{
+    padding: $padding-horizontal $padding-horizontal 0;
+    @include bp-xs-small{
+      padding-right: 15px;
+      padding-left: 15px;
+    };
+    ul{
+      position: relative;
+      text-align: left;
+      .media{
+        display: flex;
+        align-items: flex-start;
+        .media-img{
+          display: flex;
+          color: $brand-color;
+          margin-right: 10px;
+          &.icon-expert{
+            top: -4px;
+            @include font-size(26px);
+
+          }
+          &.icon-interested{
+            top: 2px;
+            @include font-size(21px);
+            left: 3px;
+            min-width: 26px;
+          }
+        }
+        .media-content{
+          flex: 1 1 0%;
+          h3{
+            @include font-size(12px);
+            color: $light-gray;
+            margin-bottom: 3px;
+            letter-spacing: 0.5px;
+          }
+          p{
+            margin-top: 0;
+          }
+        }
+        &:last-child{
+          p{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+  }
+}
+.card-actions{
+  text-align: center;
+  padding: $padding-vertical $padding-horizontal 0;
+  margin-top: 30px;
+  li{
+    display: inline-block;
+    a{
+      width: 80px;
+      height: 80px;
+      display: inline-block;
+      color: #fff;
+      border-radius: 100%;
+      text-align: center;
+      i{
+        @include font-size(70px);
+        top: 6px;
+      }
+
+    }
+    span{
+      display: block;
+      color: $light-gray;
+      padding-top: 5px;
+    }
+    &.like{
+      margin-left: 30px;
+      a{
+        background: $green;
+        @include box-shadow(0, 10px, 25px, rgba(57, 203, 118, 0.2));
+
+      }
+    }
+    &.dislike{
+      margin-right: 30px;
+      a{
+        background: $red;
+        @include box-shadow(0, 10px, 25px, rgba(204, 75, 58, 0.2));
+      }
+    }
+  }
+
+}

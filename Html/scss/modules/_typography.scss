@@ -1,0 +1,18 @@
+/*FONT*/
+
+body{
+  font-family: $font-family;
+}
+h2,h3{
+  font-weight: normal;
+  margin: 0;
+}
+
+h2{
+  color: $dark-gray;
+  @include font-size(28px);
+}
+h3{
+  @include font-size(18px);
+  color: $light-gray;
+}

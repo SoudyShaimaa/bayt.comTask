@@ -1,0 +1,14 @@
+
+ header{
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    height: 44px;
+    padding: 10px $padding-horizontal;
+    nav{
+      a{
+        display: inline-block;
+        @include font-size(27px);
+        top: 27px;
+      }
+    }
+  }
