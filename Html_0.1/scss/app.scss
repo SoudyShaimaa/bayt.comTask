@@ -1,0 +1,12 @@
+
+/* BASE - Base styles , variables, mixins, ect*/
+@import 'base/_variables.scss';
+@import 'base/_mixins.scss';
+@import 'base/_normalize.scss';
+@import 'base/_base.scss';
+
+/*MODULES  - Individual site components */
+@import 'modules/_icons.scss';
+@import "modules/_card.scss";
+/* LAYOUTS - page layout styles */
+@import 'layouts/_header.scss';

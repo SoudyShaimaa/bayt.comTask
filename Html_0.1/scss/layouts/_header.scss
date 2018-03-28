@@ -1,0 +1,12 @@
+
+ header{
+    height: $header-height;
+    padding: 20px $padding-horizontal;
+    nav{
+      a{
+        display: inline-block;
+        @include font-size(50px);
+        top: 27px;
+      }
+    }
+  }

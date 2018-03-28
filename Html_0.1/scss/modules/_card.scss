@@ -1,0 +1,296 @@
+#tinderslide
+{
+  height: calc(100% - #{$card-actions-height} - #{$header-height}) ;
+  > ul {
+      height: 100%;
+      position: relative;
+  }
+}
+.card{
+  width: 100%;
+  display: block;
+  background: #fff;
+  text-align: center;
+  @include box-shadow(0, 10px, 25px, rgba(0, 0, 0, 0.1));
+  border-radius: $default-border-radius;
+  padding: $padding-vertical 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  left: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  height: 100%;
+  &.card-details-content{
+    position: relative;
+    height: auto;
+    overflow-y: auto;
+    height: 100%;
+    box-shadow: none;
+    .more-bg{
+      display: none;
+    }
+  }
+  .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+     transition: opacity 0.5s ease;
+    @include opacity(0.0);
+    &.accept{
+      background: $green;
+    }
+    &.reject{
+      background: $red;
+    }
+  }
+  .card-img{
+    position: relative;
+    z-index: 2;
+    border-radius: 100%;
+    width: $profile-img-dimintion;
+    height: $profile-img-dimintion;
+    overflow: hidden;
+    display: inline-block;
+    img{
+      width: 100%;
+      min-height: $profile-img-dimintion;
+    }
+  }
+  .card-title{
+    position: relative;
+    padding: $padding-horizontal ;
+    margin-top: 3px;
+    border-bottom: 2px solid #ebebeb;
+    h2{
+      @include font-size(20px);
+      color: $dark-gray;
+    }
+    h3{
+      @include font-size(15px);
+      color: $bas-gray;
+      i{
+        color: $light-gray;
+        @include font-size(23px);
+        top: 5px;
+        right: -2px;
+        &.icon-job{
+          margin-right: 5px;
+        }
+        &.icon-location{
+          @include font-size(25px);
+          top: 7px;
+        }
+      }
+    }
+  }
+  .card-text{
+    padding: $padding-horizontal $padding-horizontal 0;
+    @include bp-xs-small{
+      padding-right: 15px;
+      padding-left: 15px;
+    };
+    ul{
+      position: relative;
+      text-align: left;
+      .media{
+        margin-bottom: 20px;
+        &:first-child{
+          margin-bottom: 10px;
+        }
+        .media-img{
+          margin-bottom: 8px;
+          h3{
+            @include font-size(15px);
+            color: $light-gray;
+            margin-bottom: 3px;
+            letter-spacing: 0.5px;
+            display: inline-block;
+          }
+          i{
+            color: $brand-color;
+            &.icon-interested{
+              top: 7px;
+              @include font-size(25px);
+              left: -2px;
+            }
+            &.icon-bio{
+              top: 11px;
+              left: -5px;
+              margin-right: -11px;
+              @include font-size(30px);
+            }
+            &.icon-education{
+              @include font-size(35px);
+              top: 11px;
+              margin-right: -17px;
+              left: -9px;
+            }
+            &.icon-employee{
+              @include font-size(29px);
+              margin-right: -15px;
+              top: 14px;
+              left: -7px;
+            }
+          }
+
+        }
+        .media-content{
+          p{
+            @include font-size(15px);
+            margin-top: 0;
+            line-height: 22px;
+
+          }
+          .keyword{
+            li{
+              border-radius: 10px;
+              background: #f5f5f5;
+              color: $brand-color;
+              display: inline-block;
+              margin-right: 5px;
+              padding: 7px 10px;
+              margin-bottom: 10px;
+              letter-spacing: 0.5px;
+            }
+          }
+          .list{
+            li{
+              margin-bottom: 20px;
+              h5{
+                margin: 0 0 2px;
+                @include font-size(15px);
+                font-weight: normal;
+              }
+              p{
+                @include font-size(13px);
+                @include opacity(0.7);
+                margin-bottom: 0;
+              }
+              span{
+                display: block;
+                @include font-size(13px);
+
+              }
+            }
+          }
+        }
+        &:last-child{
+          p{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  .more-bg{
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1) 75%);
+    width: 100%;
+    left: 0;
+    height: 100px;
+  }
+  .more-button{
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    bottom: 0;
+    @include font-size(15px);
+    z-index: 4;
+    cursor: pointer;
+    a{
+      display: block;
+      padding: 20px 0 20px;
+    }
+  }
+
+}
+.card-actions{
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  padding-top: 20px;
+  width: 100%;
+  li{
+    display: inline-block;
+    a{
+      width: 87px;
+      height: 87px;
+      display: inline-block;
+      background: #fff;
+      @include box-shadow(0, 0, 10px, rgba(0, 0, 0, 0.02));
+      border-radius: 100%;
+      text-align: center;
+      i{
+        @include font-size(60px);
+        top: 17px;
+      }
+    }
+    &.like{
+      margin-left: 15px;
+      a{
+        color: $green;
+      }
+    }
+    &.dislike{
+      a{
+        color: $red;
+      }
+    }
+  }
+}
+
+//more information
+
+.screen-body.tab-open{
+  @include transform-x(-100%);
+
+  }
+  .screen-body.tab-open{
+    overflow: hidden;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+  }
+
+  .card-details {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    @include transform-x(100%);
+    @include transition(0.3s);
+}
+.card-details.tab-visible {
+  @include transform-x(0);
+}
+.close{
+  display: inline-block;
+  padding: 15px;
+  @include box-shadow(0, 0, 10px, rgba(0, 0, 0, 0.02));
+  color: $brand-color;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: lighten($light-gray, 30%);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  cursor: pointer;
+  i{
+    @include font-size(30px);
+    top: -4px;
+    left: -6px;
+  }
+}
